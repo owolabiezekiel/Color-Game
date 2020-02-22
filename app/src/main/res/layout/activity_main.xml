@@ -1,18 +1,178 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/ash"
+    android:gravity="center"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textAlignment="center">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/shablagooital"
+            android:text="R"
+            android:textAlignment="center"
+            android:textSize="50sp"
+            android:textColor="#ff0000"/>
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/shablagooital"
+            android:gravity="center"
+            android:text="-"
+            android:textSize="50sp"
+            android:textColor="@color/whiteText"/>
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/shablagooital"
+            android:gravity="center"
+            android:text="G"
+            android:textSize="50sp"
+            android:textColor="#00ff00"/>
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/shablagooital"
+            android:gravity="center"
+            android:text="-"
+            android:textSize="50sp"
+            android:textColor="@color/whiteText"/>
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/shablagooital"
+            android:gravity="center"
+            android:textSize="50sp"
+            android:text="B"
+            android:textColor="#0000ff"/>
+
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/quizName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/shablagooital"
+        android:gravity="center"
+        android:text="@string/app_name"
+        android:textColor="@color/whiteText"
+        android:textSize="50sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp"></View>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/colorgameicon" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="40dp"></View>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/shablagooital"
+        android:gravity="center"
+        android:text="Select Game Level"
+        android:textColor="@color/whiteText"
+        android:textSize="40sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="40dp"></View>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp">
+
+        <Button
+            android:layout_weight="4"
+            android:id="@+id/easy_game_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/round_button_layout"
+            android:fontFamily="@font/shablagooital"
+            android:text="Easy"
+            android:textColor="@color/whiteText"
+            android:textStyle="italic" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp">
+
+        <Button
+            android:layout_weight="4"
+            android:id="@+id/hard_game_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/round_button_layout"
+            android:fontFamily="@font/shablagooital"
+            android:text="Hard"
+            android:textColor="@color/whiteText"
+            android:textStyle="italic" />
+
+
+
+    </LinearLayout>
+
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="40dp"></View>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="40dp"></View>
+
+    <Button
+        android:id="@+id/start_game"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_button_layout"
+        android:fontFamily="@font/shablagooital"
+        android:text="Lets GO"
+        android:textColor="@color/whiteText"
+        android:textStyle="italic" />
+
+
+</LinearLayout>
