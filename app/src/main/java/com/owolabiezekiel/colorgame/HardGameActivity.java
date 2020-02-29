@@ -320,6 +320,7 @@ public class HardGameActivity extends AppCompatActivity implements View.OnClickL
           firstImage.setImageResource(R.drawable.ic_clear);
           firstTextView.setText("INCORRECT");
           firstTextView.setTextColor(getResources().getColor(R.color.red));
+          disableAllTextViews();
         }
         break;
       case R.id.secondCardViewHard:
@@ -333,6 +334,7 @@ public class HardGameActivity extends AppCompatActivity implements View.OnClickL
           secondImage.setImageResource(R.drawable.ic_clear);
           secondTextView.setText("INCORRECT");
           secondTextView.setTextColor(getResources().getColor(R.color.red));
+          disableAllTextViews();
         }
         break;
       case R.id.thirdCardViewHard:
@@ -346,6 +348,7 @@ public class HardGameActivity extends AppCompatActivity implements View.OnClickL
           thirdImage.setImageResource(R.drawable.ic_clear);
           thirdTextView.setText("INCORRECT");
           thirdTextView.setTextColor(getResources().getColor(R.color.red));
+          disableAllTextViews();
         }
         break;
       case R.id.fourthCardViewHard:
@@ -359,6 +362,7 @@ public class HardGameActivity extends AppCompatActivity implements View.OnClickL
           fourthImage.setImageResource(R.drawable.ic_clear);
           fourthTextView.setText("INCORRECT");
           fourthTextView.setTextColor(getResources().getColor(R.color.red));
+          disableAllTextViews();
         }
         break;
       case R.id.fifthCardViewHard:
@@ -372,6 +376,7 @@ public class HardGameActivity extends AppCompatActivity implements View.OnClickL
           fifthImage.setImageResource(R.drawable.ic_clear);
           fifthTextView.setText("INCORRECT");
           fifthTextView.setTextColor(getResources().getColor(R.color.red));
+          disableAllTextViews();
         }
         break;
       case R.id.sixthCardViewHard:
@@ -385,6 +390,7 @@ public class HardGameActivity extends AppCompatActivity implements View.OnClickL
           sixthImage.setImageResource(R.drawable.ic_clear);
           sixthTextView.setText("INCORRECT");
           sixthTextView.setTextColor(getResources().getColor(R.color.red));
+          disableAllTextViews();
         }
         break;
       case R.id.seventhCardViewHard:
@@ -398,6 +404,7 @@ public class HardGameActivity extends AppCompatActivity implements View.OnClickL
           seventhImage.setImageResource(R.drawable.ic_clear);
           seventhTextView.setText("INCORRECT");
           seventhTextView.setTextColor(getResources().getColor(R.color.red));
+          disableAllTextViews();
         }
         break;
       case R.id.eighthCardViewHard:
@@ -411,6 +418,7 @@ public class HardGameActivity extends AppCompatActivity implements View.OnClickL
           eighthImage.setImageResource(R.drawable.ic_clear);
           eighthTextView.setText("INCORRECT");
           eighthTextView.setTextColor(getResources().getColor(R.color.red));
+          disableAllTextViews();
         }
         break;
       case R.id.ninthCardViewHard:
@@ -424,6 +432,7 @@ public class HardGameActivity extends AppCompatActivity implements View.OnClickL
           ninthImage.setImageResource(R.drawable.ic_clear);
           ninthTextView.setText("INCORRECT");
           ninthTextView.setTextColor(getResources().getColor(R.color.red));
+          disableAllTextViews();
         }
         break;
 

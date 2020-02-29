@@ -139,6 +139,7 @@ public class EasyGameActivity extends AppCompatActivity implements View.OnClickL
           firstImage.setImageResource(R.drawable.ic_clear);
           firstTextView.setText("INCORRECT");
           firstTextView.setTextColor(getResources().getColor(R.color.red));
+          disableAllTextViews();
         }
         break;
       case R.id.secondCardView:
@@ -152,6 +153,7 @@ public class EasyGameActivity extends AppCompatActivity implements View.OnClickL
           secondImage.setImageResource(R.drawable.ic_clear);
           secondTextView.setText("INCORRECT");
           secondTextView.setTextColor(getResources().getColor(R.color.red));
+          disableAllTextViews();
         }
         break;
       case R.id.thirdCardView:
@@ -165,6 +167,7 @@ public class EasyGameActivity extends AppCompatActivity implements View.OnClickL
           thirdImage.setImageResource(R.drawable.ic_clear);
           thirdTextView.setText("INCORRECT");
           thirdTextView.setTextColor(getResources().getColor(R.color.red));
+          disableAllTextViews();
         }
         break;
       case R.id.fourthCardView:
@@ -178,6 +181,7 @@ public class EasyGameActivity extends AppCompatActivity implements View.OnClickL
           fourthImage.setImageResource(R.drawable.ic_clear);
           fourthTextView.setText("INCORRECT");
           fourthTextView.setTextColor(getResources().getColor(R.color.red));
+          disableAllTextViews();
         }
         break;
 
