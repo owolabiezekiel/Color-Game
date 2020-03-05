@@ -6,20 +6,27 @@ import androidx.cardview.widget.CardView;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class HardGameActivity extends AppCompatActivity implements View.OnClickListener{
-  private TextView colorRedText, colorGreenText, colorBlueText, firstTextView, secondTextView, thirdTextView, fourthTextView, fifthTextView, sixthTextView, seventhTextView, eighthTextView, ninthTextView;
+  private TextView colorRedText, colorGreenText, colorBlueText, firstTextView, secondTextView, thirdTextView, fourthTextView, fifthTextView, sixthTextView, seventhTextView, eighthTextView, ninthTextView,
+          playerOneScore, playerTwoScore;
   private ImageView firstImage, secondImage, thirdImage, fourthImage, fifthImage, sixthImage, seventhImage, eighthImage, ninthImage;
   private CardView firstCardView, secondCardView, thirdCardView, fourthCardView, fifthCardView, sixthCardView, seventhCardView, eighthCardView, ninthCardView;
   private RelativeLayout firstRelativeLayout, secondRelativeLayout, thirdRelativeLayout, fourthRelativeLayout, fifthRelativeLayout, sixthRelativeLayout, seventhRelativeLayout, eighthRelativeLayout, ninthRelativeLayout;
-  private Button restartGame, selectLevel;
+  private Button restartGame, selectLevel, resetGame;
+  private View layout;
+  private LayoutInflater layoutInflater;
   private int selectedCardView;
-  private boolean won;
+  private int playerTurn = 1;
   private String correctOption;
   private String selectedOption;
   private int red, green, blue;
@@ -28,9 +35,9 @@ public class HardGameActivity extends AppCompatActivity implements View.OnClickL
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_hard_game);
-
     initUI();
     setGuessColors();
+    toastPlayerTurn();
   }
 
   private void initUI(){
@@ -40,6 +47,8 @@ public class HardGameActivity extends AppCompatActivity implements View.OnClickL
     colorBlueText = findViewById(R.id.colorBlueTextHard);
 
     //the text views in the card layouts
+    playerOneScore = findViewById(R.id.hardPlayerOneScore);
+    playerTwoScore = findViewById(R.id.hardPlayerTwoScore);
     firstTextView = findViewById(R.id.firstTextViewHard);
     secondTextView = findViewById(R.id.secondTextViewHard);
     thirdTextView = findViewById(R.id.thirdTextViewHard);
@@ -86,6 +95,7 @@ public class HardGameActivity extends AppCompatActivity implements View.OnClickL
     //other control buttons
     restartGame = findViewById(R.id.hardRestart);
     selectLevel = findViewById(R.id.hardSelectLevel);
+    resetGame = findViewById(R.id.hardReset);
     firstCardView.setOnClickListener(this);
     secondCardView.setOnClickListener(this);
     thirdCardView.setOnClickListener(this);
@@ -97,6 +107,7 @@ public class HardGameActivity extends AppCompatActivity implements View.OnClickL
     ninthCardView.setOnClickListener(this);
     restartGame.setOnClickListener(this);
     selectLevel.setOnClickListener(this);
+    resetGame.setOnClickListener(this);
   }
 
   private void setGuessColors(){
@@ -316,6 +327,18 @@ public class HardGameActivity extends AppCompatActivity implements View.OnClickL
           firstTextView.setText("CORRECT");
           firstTextView.setTextColor(getResources().getColor(R.color.green));
           disableAllTextViews();
+          if(playerTurn == 1){
+            int score = Integer.valueOf(playerOneScore.getText().toString());
+            score = score + 1;
+            playerOneScore.setText(String.valueOf(score));
+            return;
+          }
+          if(playerTurn == 2){
+            int score = Integer.valueOf(playerTwoScore.getText().toString());
+            score = score + 1;
+            playerTwoScore.setText(String.valueOf(score));
+            return;
+          }
         }else {
           firstImage.setImageResource(R.drawable.ic_clear);
           firstTextView.setText("INCORRECT");
@@ -330,6 +353,18 @@ public class HardGameActivity extends AppCompatActivity implements View.OnClickL
           secondTextView.setText("CORRECT");
           secondTextView.setTextColor(getResources().getColor(R.color.green));
           disableAllTextViews();
+          if(playerTurn == 1){
+            int score = Integer.valueOf(playerOneScore.getText().toString());
+            score = score + 1;
+            playerOneScore.setText(String.valueOf(score));
+            return;
+          }
+          if(playerTurn == 2){
+            int score = Integer.valueOf(playerTwoScore.getText().toString());
+            score = score + 1;
+            playerTwoScore.setText(String.valueOf(score));
+            return;
+          }
         }else {
           secondImage.setImageResource(R.drawable.ic_clear);
           secondTextView.setText("INCORRECT");
@@ -344,6 +379,18 @@ public class HardGameActivity extends AppCompatActivity implements View.OnClickL
           thirdTextView.setText("CORRECT");
           thirdTextView.setTextColor(getResources().getColor(R.color.green));
           disableAllTextViews();
+          if(playerTurn == 1){
+            int score = Integer.valueOf(playerOneScore.getText().toString());
+            score = score + 1;
+            playerOneScore.setText(String.valueOf(score));
+            return;
+          }
+          if(playerTurn == 2){
+            int score = Integer.valueOf(playerTwoScore.getText().toString());
+            score = score + 1;
+            playerTwoScore.setText(String.valueOf(score));
+            return;
+          }
         }else {
           thirdImage.setImageResource(R.drawable.ic_clear);
           thirdTextView.setText("INCORRECT");
@@ -358,6 +405,18 @@ public class HardGameActivity extends AppCompatActivity implements View.OnClickL
           fourthTextView.setText("CORRECT");
           fourthTextView.setTextColor(getResources().getColor(R.color.green));
           disableAllTextViews();
+          if(playerTurn == 1){
+            int score = Integer.valueOf(playerOneScore.getText().toString());
+            score = score + 1;
+            playerOneScore.setText(String.valueOf(score));
+            return;
+          }
+          if(playerTurn == 2){
+            int score = Integer.valueOf(playerTwoScore.getText().toString());
+            score = score + 1;
+            playerTwoScore.setText(String.valueOf(score));
+            return;
+          }
         }else {
           fourthImage.setImageResource(R.drawable.ic_clear);
           fourthTextView.setText("INCORRECT");
@@ -372,6 +431,18 @@ public class HardGameActivity extends AppCompatActivity implements View.OnClickL
           fifthTextView.setText("CORRECT");
           fifthTextView.setTextColor(getResources().getColor(R.color.green));
           disableAllTextViews();
+          if(playerTurn == 1){
+            int score = Integer.valueOf(playerOneScore.getText().toString());
+            score = score + 1;
+            playerOneScore.setText(String.valueOf(score));
+            return;
+          }
+          if(playerTurn == 2){
+            int score = Integer.valueOf(playerTwoScore.getText().toString());
+            score = score + 1;
+            playerTwoScore.setText(String.valueOf(score));
+            return;
+          }
         }else {
           fifthImage.setImageResource(R.drawable.ic_clear);
           fifthTextView.setText("INCORRECT");
@@ -386,6 +457,18 @@ public class HardGameActivity extends AppCompatActivity implements View.OnClickL
           sixthTextView.setText("CORRECT");
           sixthTextView.setTextColor(getResources().getColor(R.color.green));
           disableAllTextViews();
+          if(playerTurn == 1){
+            int score = Integer.valueOf(playerOneScore.getText().toString());
+            score = score + 1;
+            playerOneScore.setText(String.valueOf(score));
+            return;
+          }
+          if(playerTurn == 2){
+            int score = Integer.valueOf(playerTwoScore.getText().toString());
+            score = score + 1;
+            playerTwoScore.setText(String.valueOf(score));
+            return;
+          }
         }else {
           sixthImage.setImageResource(R.drawable.ic_clear);
           sixthTextView.setText("INCORRECT");
@@ -400,6 +483,18 @@ public class HardGameActivity extends AppCompatActivity implements View.OnClickL
           seventhTextView.setText("CORRECT");
           seventhTextView.setTextColor(getResources().getColor(R.color.green));
           disableAllTextViews();
+          if(playerTurn == 1){
+            int score = Integer.valueOf(playerOneScore.getText().toString());
+            score = score + 1;
+            playerOneScore.setText(String.valueOf(score));
+            return;
+          }
+          if(playerTurn == 2){
+            int score = Integer.valueOf(playerTwoScore.getText().toString());
+            score = score + 1;
+            playerTwoScore.setText(String.valueOf(score));
+            return;
+          }
         }else {
           seventhImage.setImageResource(R.drawable.ic_clear);
           seventhTextView.setText("INCORRECT");
@@ -414,6 +509,18 @@ public class HardGameActivity extends AppCompatActivity implements View.OnClickL
           eighthTextView.setText("CORRECT");
           eighthTextView.setTextColor(getResources().getColor(R.color.green));
           disableAllTextViews();
+          if(playerTurn == 1){
+            int score = Integer.valueOf(playerOneScore.getText().toString());
+            score = score + 1;
+            playerOneScore.setText(String.valueOf(score));
+            return;
+          }
+          if(playerTurn == 2){
+            int score = Integer.valueOf(playerTwoScore.getText().toString());
+            score = score + 1;
+            playerTwoScore.setText(String.valueOf(score));
+            return;
+          }
         }else {
           eighthImage.setImageResource(R.drawable.ic_clear);
           eighthTextView.setText("INCORRECT");
@@ -428,6 +535,18 @@ public class HardGameActivity extends AppCompatActivity implements View.OnClickL
           ninthTextView.setText("CORRECT");
           ninthTextView.setTextColor(getResources().getColor(R.color.green));
           disableAllTextViews();
+          if(playerTurn == 1){
+            int score = Integer.valueOf(playerOneScore.getText().toString());
+            score = score + 1;
+            playerOneScore.setText(String.valueOf(score));
+            return;
+          }
+          if(playerTurn == 2){
+            int score = Integer.valueOf(playerTwoScore.getText().toString());
+            score = score + 1;
+            playerTwoScore.setText(String.valueOf(score));
+            return;
+          }
         }else {
           ninthImage.setImageResource(R.drawable.ic_clear);
           ninthTextView.setText("INCORRECT");
@@ -436,13 +555,28 @@ public class HardGameActivity extends AppCompatActivity implements View.OnClickL
         }
         break;
 
-      case R.id.hardRestart:
+      case R.id.hardReset:
         recreate();
         break;
 
       case R.id.hardSelectLevel:
         startActivity(new Intent(getApplicationContext(), MainActivity.class));
         finish();
+
+      case R.id.hardRestart:
+        setGuessColors();
+        enableAllCardViews();
+        clearTextAndImages();
+        if(playerTurn == 1){
+          playerTurn = 2;
+          toastPlayerTurn();
+          return;
+        }
+        if(playerTurn == 2){
+          playerTurn = 1;
+          toastPlayerTurn();
+          return;
+        }
     }
   }
 
@@ -463,5 +597,51 @@ public class HardGameActivity extends AppCompatActivity implements View.OnClickL
     seventhCardView.setEnabled(false);
     eighthCardView.setEnabled(false);
     ninthCardView.setEnabled(false);
+  }
+
+  private void enableAllCardViews(){
+    firstCardView.setEnabled(true);
+    secondCardView.setEnabled(true);
+    thirdCardView.setEnabled(true);
+    fourthCardView.setEnabled(true);
+    fifthCardView.setEnabled(true);
+    sixthCardView.setEnabled(true);
+    seventhCardView.setEnabled(true);
+    eighthCardView.setEnabled(true);
+    ninthCardView.setEnabled(true);
+  }
+
+  private void clearTextAndImages(){
+    firstTextView.setText("");
+    secondTextView.setText("");
+    thirdTextView.setText("");
+    fourthTextView.setText("");
+    fifthTextView.setText("");
+    sixthTextView.setText("");
+    seventhTextView.setText("");
+    eighthTextView.setText("");
+    ninthTextView.setText("");
+    firstImage.setImageDrawable(null);
+    secondImage.setImageDrawable(null);
+    thirdImage.setImageDrawable(null);
+    fourthImage.setImageDrawable(null);
+    fifthImage.setImageDrawable(null);
+    sixthImage.setImageDrawable(null);
+    seventhImage.setImageDrawable(null);
+    eighthImage.setImageDrawable(null);
+    ninthImage.setImageDrawable(null);
+  }
+
+  private void toastPlayerTurn(){
+    layoutInflater = getLayoutInflater();
+    layout = layoutInflater.inflate(R.layout.next_player_layout, (ViewGroup) findViewById(R.id.next_player_container));
+    TextView text = layout.findViewById(R.id.turn_text);
+    text.setText("Player " + playerTurn + " turn");
+    Toast toast = new Toast(getApplicationContext());
+    toast.setGravity(Gravity.CENTER_HORIZONTAL, 0, 0);
+    toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+    toast.setDuration(Toast.LENGTH_SHORT);
+    toast.setView(layout);
+    toast.show();
   }
 }

@@ -6,7 +6,10 @@ import androidx.cardview.widget.CardView;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -19,6 +22,8 @@ public class EasyGameActivity extends AppCompatActivity implements View.OnClickL
   private CardView firstCardView, secondCardView, thirdCardView, fourthCardView;
   private RelativeLayout firstRelativeLayout, secondRelativeLayout, thirdRelativeLayout, fourthRelativeLayout;
   private Button restartGame, selectLevel, resetGame;
+  private View layout;
+  private LayoutInflater layoutInflater;
   private int selectedCardView;
   private int playerTurn = 1;
   private String correctOption;
@@ -31,8 +36,7 @@ public class EasyGameActivity extends AppCompatActivity implements View.OnClickL
     setContentView(R.layout.activity_easy_game);
     initUI();
     setGuessColors();
-    Toast.makeText(getApplicationContext(), "Player " + playerOneScore.getText().toString() + " turn", Toast.LENGTH_SHORT).show();
-    Toast.makeText(getApplicationContext(), "Player " + playerTurn + " turn", Toast.LENGTH_SHORT).show();
+    toastPlayerTurn();
   }
 
   private void initUI(){
@@ -255,12 +259,12 @@ public class EasyGameActivity extends AppCompatActivity implements View.OnClickL
         clearTextAndImages();
         if(playerTurn == 1){
           playerTurn = 2;
-          Toast.makeText(getApplicationContext(), "Player " + playerTurn + " turn", Toast.LENGTH_LONG).show();
+          toastPlayerTurn();
           return;
         }
         if(playerTurn == 2){
           playerTurn = 1;
-          Toast.makeText(getApplicationContext(), "Player " + playerTurn + " turn", Toast.LENGTH_LONG).show();
+          toastPlayerTurn();
           return;
         }
     }
@@ -289,5 +293,18 @@ public class EasyGameActivity extends AppCompatActivity implements View.OnClickL
     secondImage.setImageDrawable(null);
     thirdImage.setImageDrawable(null);
     fourthImage.setImageDrawable(null);
+  }
+
+  private void toastPlayerTurn(){
+    layoutInflater = getLayoutInflater();
+    layout = layoutInflater.inflate(R.layout.next_player_layout,
+            (ViewGroup) findViewById(R.id.next_player_container));
+    TextView text = layout.findViewById(R.id.turn_text);
+    text.setText("Player " + playerTurn + " turn");
+    Toast toast = new Toast(getApplicationContext());
+    toast.setGravity(Gravity.CENTER_HORIZONTAL, 0, 0);
+    toast.setDuration(Toast.LENGTH_SHORT);
+    toast.setView(layout);
+    toast.show();
   }
 }

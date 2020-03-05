@@ -561,7 +561,7 @@
                 android:layout_weight="1"
                 android:padding="5dp"
                 android:id="@+id/hardPlayerOneScore"
-                android:text="10"
+                android:text="0"
                 android:background="@drawable/blue_round_background" />
 
             <TextView
@@ -594,7 +594,7 @@
                 android:textColor="@color/whiteText"
                 android:layout_weight="1"
                 android:id="@+id/hardPlayerTwoScore"
-                android:text="10"
+                android:text="0"
                 android:background="@drawable/red_round_background" />
 
         </LinearLayout>
