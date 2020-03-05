@@ -11,15 +11,16 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class EasyGameActivity extends AppCompatActivity implements View.OnClickListener {
-  private TextView colorRedText, colorGreenText, colorBlueText, firstTextView, secondTextView, thirdTextView, fourthTextView;
+  private TextView colorRedText, colorGreenText, colorBlueText, firstTextView, secondTextView, thirdTextView, fourthTextView, playerOneScore, playerTwoScore;
   private ImageView firstImage, secondImage, thirdImage, fourthImage;
   private CardView firstCardView, secondCardView, thirdCardView, fourthCardView;
   private RelativeLayout firstRelativeLayout, secondRelativeLayout, thirdRelativeLayout, fourthRelativeLayout;
-  private Button restartGame, selectLevel;
+  private Button restartGame, selectLevel, resetGame;
   private int selectedCardView;
-  private boolean won;
+  private int playerTurn = 1;
   private String correctOption;
   private String selectedOption;
   private int red, green, blue;
@@ -30,9 +31,13 @@ public class EasyGameActivity extends AppCompatActivity implements View.OnClickL
     setContentView(R.layout.activity_easy_game);
     initUI();
     setGuessColors();
+    Toast.makeText(getApplicationContext(), "Player " + playerOneScore.getText().toString() + " turn", Toast.LENGTH_SHORT).show();
+    Toast.makeText(getApplicationContext(), "Player " + playerTurn + " turn", Toast.LENGTH_SHORT).show();
   }
 
   private void initUI(){
+    playerOneScore = findViewById(R.id.easyPlayerOneScore);
+    playerTwoScore = findViewById(R.id.easyPlayerTwoScore);
     colorRedText = findViewById(R.id.colorRedText);
     colorGreenText = findViewById(R.id.colorGreenText);
     colorBlueText = findViewById(R.id.colorBlueText);
@@ -53,6 +58,7 @@ public class EasyGameActivity extends AppCompatActivity implements View.OnClickL
     thirdImage = findViewById(R.id.thirdImage);
     fourthImage = findViewById(R.id.fourthImage);
     restartGame = findViewById(R.id.easyRestart);
+    resetGame = findViewById(R.id.easyReset);
     selectLevel = findViewById(R.id.easySelectLevel);
     firstCardView.setOnClickListener(this);
     secondCardView.setOnClickListener(this);
@@ -60,6 +66,7 @@ public class EasyGameActivity extends AppCompatActivity implements View.OnClickL
     fourthCardView.setOnClickListener(this);
     restartGame.setOnClickListener(this);
     selectLevel.setOnClickListener(this);
+    resetGame.setOnClickListener(this);
   }
 
   private void setGuessColors(){
@@ -134,12 +141,25 @@ public class EasyGameActivity extends AppCompatActivity implements View.OnClickL
           firstImage.setImageResource(R.drawable.ic_check_black_24dp);
           firstTextView.setText("CORRECT");
           firstTextView.setTextColor(getResources().getColor(R.color.green));
-          disableAllTextViews();
+          disableAllCardViews();
+          if(playerTurn == 1){
+            int score = Integer.valueOf(playerOneScore.getText().toString());
+            score = score + 1;
+            playerOneScore.setText(String.valueOf(score));
+            return;
+          }
+          if(playerTurn == 2){
+            int score = Integer.valueOf(playerTwoScore.getText().toString());
+            score = score + 1;
+            playerTwoScore.setText(String.valueOf(score));
+            return;
+          }
+
         }else {
           firstImage.setImageResource(R.drawable.ic_clear);
           firstTextView.setText("INCORRECT");
           firstTextView.setTextColor(getResources().getColor(R.color.red));
-          disableAllTextViews();
+          disableAllCardViews();
         }
         break;
       case R.id.secondCardView:
@@ -148,12 +168,24 @@ public class EasyGameActivity extends AppCompatActivity implements View.OnClickL
           secondImage.setImageResource(R.drawable.ic_check_black_24dp);
           secondTextView.setText("CORRECT");
           secondTextView.setTextColor(getResources().getColor(R.color.green));
-          disableAllTextViews();
+          disableAllCardViews();
+          if(playerTurn == 1){
+            int score = Integer.valueOf(playerOneScore.getText().toString());
+            score = score + 1;
+            playerOneScore.setText(String.valueOf(score));
+            return;
+          }
+          if(playerTurn == 2){
+            int score = Integer.valueOf(playerTwoScore.getText().toString());
+            score = score + 1;
+            playerTwoScore.setText(String.valueOf(score));
+            return;
+          }
         }else {
           secondImage.setImageResource(R.drawable.ic_clear);
           secondTextView.setText("INCORRECT");
           secondTextView.setTextColor(getResources().getColor(R.color.red));
-          disableAllTextViews();
+          disableAllCardViews();
         }
         break;
       case R.id.thirdCardView:
@@ -162,12 +194,24 @@ public class EasyGameActivity extends AppCompatActivity implements View.OnClickL
           thirdImage.setImageResource(R.drawable.ic_check_black_24dp);
           thirdTextView.setText("CORRECT");
           thirdTextView.setTextColor(getResources().getColor(R.color.green));
-          disableAllTextViews();
+          disableAllCardViews();
+          if(playerTurn == 1){
+            int score = Integer.valueOf(playerOneScore.getText().toString());
+            score = score + 1;
+            playerOneScore.setText(String.valueOf(score));
+            return;
+          }
+          if(playerTurn == 2){
+            int score = Integer.valueOf(playerTwoScore.getText().toString());
+            score = score + 1;
+            playerTwoScore.setText(String.valueOf(score));
+            return;
+          }
         }else {
           thirdImage.setImageResource(R.drawable.ic_clear);
           thirdTextView.setText("INCORRECT");
           thirdTextView.setTextColor(getResources().getColor(R.color.red));
-          disableAllTextViews();
+          disableAllCardViews();
         }
         break;
       case R.id.fourthCardView:
@@ -176,29 +220,74 @@ public class EasyGameActivity extends AppCompatActivity implements View.OnClickL
           fourthImage.setImageResource(R.drawable.ic_check_black_24dp);
           fourthTextView.setText("CORRECT");
           fourthTextView.setTextColor(getResources().getColor(R.color.green));
-          disableAllTextViews();
+          disableAllCardViews();
+          if(playerTurn == 1){
+            int score = Integer.valueOf(playerOneScore.getText().toString());
+            score = score + 1;
+            playerOneScore.setText(String.valueOf(score));
+            return;
+          }
+          if(playerTurn == 2){
+            int score = Integer.valueOf(playerTwoScore.getText().toString());
+            score = score + 1;
+            playerTwoScore.setText(String.valueOf(score));
+            return;
+          }
         }else {
           fourthImage.setImageResource(R.drawable.ic_clear);
           fourthTextView.setText("INCORRECT");
           fourthTextView.setTextColor(getResources().getColor(R.color.red));
-          disableAllTextViews();
+          disableAllCardViews();
         }
         break;
 
-      case R.id.easyRestart:
+      case R.id.easyReset:
         recreate();
         break;
 
       case R.id.easySelectLevel:
         startActivity(new Intent(getApplicationContext(), MainActivity.class));
         finish();
+
+      case R.id.easyRestart:
+        setGuessColors();
+        enableAllCardViews();
+        clearTextAndImages();
+        if(playerTurn == 1){
+          playerTurn = 2;
+          Toast.makeText(getApplicationContext(), "Player " + playerTurn + " turn", Toast.LENGTH_LONG).show();
+          return;
+        }
+        if(playerTurn == 2){
+          playerTurn = 1;
+          Toast.makeText(getApplicationContext(), "Player " + playerTurn + " turn", Toast.LENGTH_LONG).show();
+          return;
+        }
     }
   }
 
-  private void disableAllTextViews(){
+  private void disableAllCardViews(){
     firstCardView.setEnabled(false);
     secondCardView.setEnabled(false);
     thirdCardView.setEnabled(false);
     fourthCardView.setEnabled(false);
+  }
+
+  private void enableAllCardViews(){
+    firstCardView.setEnabled(true);
+    secondCardView.setEnabled(true);
+    thirdCardView.setEnabled(true);
+    fourthCardView.setEnabled(true);
+  }
+
+  private void clearTextAndImages(){
+    firstTextView.setText("");
+    secondTextView.setText("");
+    thirdTextView.setText("");
+    fourthTextView.setText("");
+    firstImage.setImageDrawable(null);
+    secondImage.setImageDrawable(null);
+    thirdImage.setImageDrawable(null);
+    fourthImage.setImageDrawable(null);
   }
 }
